@@ -5,7 +5,7 @@
 
 namespace memory {
 
-bool patch_bytes(void *dst, const void *src, size_t len) {
+bool patch_bytes(void* dst, const void* src, size_t len) {
     DWORD oldProt = 0;
     if (!VirtualProtect(dst, len, PAGE_EXECUTE_READWRITE, &oldProt))
         return false;

@@ -10,7 +10,7 @@ BOOL APIENTRY DllMain(HMODULE hModule, DWORD reason, LPVOID lpReserved) {
         const uintptr_t base = reinterpret_cast<uintptr_t>(GetModuleHandleA(NULL));
 
         const byte patch[] = {0xB0, 0x01, 0xC3};
-        memory::patch_bytes(reinterpret_cast<void *>(base + offsets::PATCH_CHECK_FOR_LUA), &patch,
+        memory::patch_bytes(reinterpret_cast<void*>(base + offsets::PATCH_CHECK_FOR_LUA), &patch,
                             sizeof(patch));
     }
 

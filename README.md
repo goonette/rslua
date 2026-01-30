@@ -1,3 +1,7 @@
 # rslua
 
-library to enable the beta lua scripting on release builds of the native osrs client
+library to enable and extend the beta lua scripting system of the native osrs client
+
+## Usage
+
+inject the module before loading into the world (world hopping counts)

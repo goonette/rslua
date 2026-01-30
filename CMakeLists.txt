@@ -6,14 +6,19 @@ set(CMAKE_CXX_STANDARD 23)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_MSVC_RUNTIME_LIBRARY "MultiThreaded")
 
+add_subdirectory(external/minhook)
+
 file(GLOB SOURCES "src/*.cpp")
 file(GLOB HEADERS "src/*.hpp")
 
 add_library(${PROJECT_NAME} SHARED ${SOURCES} ${HEADERS})
 
-target_include_directories(${PROJECT_NAME} PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/src)
+target_link_libraries(${PROJECT_NAME} PRIVATE minhook)
+
+target_include_directories(${PROJECT_NAME} PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/src external/minhook/include)
 
 set_target_properties(${PROJECT_NAME} PROPERTIES OUTPUT_NAME "rslua")
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /MT")
 set(CMAKE_CXX_FLAGS_RELEASE "/MT /O2 /Ob2 /DNDEBUG")
+set(CMAKE_SHARED_LINKER_FLAGS "/OPT:REF /OPT:ICF /NODEFAULTLIB:MSVCRT")

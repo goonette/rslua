@@ -42,7 +42,7 @@ BOOL APIENTRY DllMain(HMODULE hModule, DWORD reason, LPVOID lpReserved) {
         if (MH_Initialize() != MH_OK)
             return FALSE;
 
-        HOOK_FUNCTION(module_base_g + offsets::LUA_REGISTER_NUMBER, register_double_h, register_double_o);
+        HOOK_FUNCTION(module_base_g + offsets::LUA_REGISTER_DOUBLE, register_double_h, register_double_o);
     } else if (reason == DLL_PROCESS_DETACH) {
         MH_Uninitialize();
     }

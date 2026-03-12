@@ -37,7 +37,7 @@ BOOL APIENTRY DllMain(HMODULE hModule, DWORD reason, LPVOID lpReserved) {
         const auto _ = freopen_s((FILE**)stdout, "conout$", "w", stdout);
 
         const byte patch[] = {0xB0, 0x01, 0xC3};
-        memory::patch_bytes(reinterpret_cast<void*>(module_base_g + offsets::PATCH_CHECK_FOR_LUA), &patch, sizeof(patch));
+        memory::patch_bytes(reinterpret_cast<void*>(module_base_g + offsets::CHECK_FOR_LUA), &patch, sizeof(patch));
 
         if (MH_Initialize() != MH_OK)
             return FALSE;

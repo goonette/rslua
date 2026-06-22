@@ -1,9 +1,9 @@
 #pragma once
 
 enum offsets {
-    CHECK_FOR_LUA = 0x85FB0,
+    CHECK_FOR_LUA = 0x7E980,
 
-    LUA_REGISTER_DOUBLE = 0x2B5340,
+    LUA_REGISTER_DOUBLE = 0x28E1B0,
 
-    CLIENT_INSTANCE = 0xEABAE8,
+    CLIENT_INSTANCE = 0xEAEED8,
 };
